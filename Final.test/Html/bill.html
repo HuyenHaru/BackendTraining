@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta content="text/html; charset=utf-8">
+<title>MonthlyBudget</title>
+<link href="bill.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content">
+        <h3 >Add New Bill</h3>
+        <div class="form">
+           <form class="add-form" method="post" action="process.php">
+              <table>
+                <tr>
+                   <td>Account</td>
+                   <td><input type="text" name="account" value="" placeholder="account"> ($) </td>
+                </tr>
+                
+                <tr>   
+                   <td>Bill ID</td>
+                   <td><input type="text" name="billID" value="" placeholder="billID"></td>
+                </tr>
+                
+                <tr>
+                   <td>Bill name</td>
+                   <td> <input type="text" name="billname" value="" placeholder="billname"></td>
+                </tr>
+                
+                <tr>
+                   <td>Amount</td>
+                   <td><input type="number" name="amount" value="" placeholder="amount"> ($) </td>
+                </tr>
+                
+                <tr>
+                   <td>Bill on</td>
+                   <td><select><option>--Select a Category--</option></select></td>
+                </tr>
+                
+                <tr>
+                   <td></td>
+                   <td><input type="checkbox" name="isPaid" value=""> Is Paid?</td>
+                </tr>
+                
+                <tr>
+                   <td></td>
+                   <td><button>Add new bill</button>
+                       <button>Reset</button></td>
+                </tr>
+              </table>
+               
+           </form>
+        </div>
+    </div>
+</body>
+</html>
