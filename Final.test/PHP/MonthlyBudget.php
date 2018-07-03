@@ -5,16 +5,17 @@
 <title>MonthlyBudget</title>
 <link type="text/css" href="style.css" rel="stylesheet" />
 <script type="text/javascript" src="validated.js"></script>
+ <?php require('connect.php');?>
 </head>
 <body>
     <div class="content">
      	
        <h3 >Add New Bill</h3>
        <div class="form">
-       		<form name="bill" method="post" onsubmit="return CheckForm();" >
+       		<form id="bill" method="post" onsubmit="return CheckForm();" >
               <div class="row">                
                 <span>Account</span>
-                <input type="text" name="account" value="" placeholder="account"> ($) 
+                <input type="text" name="account" value="" placeholder="132000"> ($) 
               </div>
               
               <div class="row">                
@@ -34,13 +35,16 @@
                 <input type="text" name="amount" value="" style="width: 200px"> ($) 
                 <span class="hide_error" id="amount-error" style="width: 300px; display: none"></span> 
               </div>
-               
+              
                <div class="row">               
                    <span>Bill on</span>
                    <select name="billon">
                       <option>--Select a Category--</option>
-                      <option>Personal</option>
-                      <option>Work</option>
+                      <?php 
+                            while ($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)){
+                                echo "<option>" .$row['cat_name']."</option>";
+                            }
+                      ?>
                     </select>
                     <span class="hide_error" id="billon-error" style="width: 200px; display: none"></span>
 
@@ -72,7 +76,7 @@
                    
                    <tr> 
                         <td></td>
-                        <td><strike></strike></td>
+                        <td style="text-decoration: line-through; "></td>
                         <td></td>
                         <td></td>
                         <td><input type="checkbox">
@@ -81,7 +85,7 @@
                    
                    <tr>
                         <td></td>
-                        <td><strike></strike></td>
+                        <td style="text-decoration: line-through;"></td>
                         <td></td>
                         <td></td>
                         <td><input type="checkbox">
